@@ -40,13 +40,16 @@ const ManageInventories = () => {
                 <div className='item' key = {item?._id}>
                     <img className='w-100' src={item?.img} alt="" />
                    <h4>{item?.name}</h4>
+                  <h6>Suplier Name: {item?.supplierName}</h6>
+                   <p>Price: ${item?.price}</p>
                    <button onClick = {() => handleDeleteItem(item?._id)} className='btn btn-warning'>Delete</button>
-            
                 </div>
                 
                 )
             }
             </div>
+            
+            <button>Add New Item</button>
             </div>
         </div>
     );

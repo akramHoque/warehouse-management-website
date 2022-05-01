@@ -13,12 +13,13 @@ const Header = () => {
                         <Nav className="me-auto">
                             <Nav.Link as={Link} to = '/items'>Items</Nav.Link>
                             <Nav.Link as={Link} to = '/inventory/:itemId'>Inventory</Nav.Link>
-                            <Nav.Link as={Link} to = '/manageInventories'>Inventory</Nav.Link>
+                            <Nav.Link as={Link} to = '/manageInventories'>Manage Inventory</Nav.Link>
+                            <Nav.Link as={Link} to = '/addItem'>AddItem</Nav.Link>
                         </Nav>
                         <Nav>
                             <Nav.Link href="#deets">More deets</Nav.Link>
                             <Nav.Link eventKey={2} href="#memes">
-                                Dank memes
+                              
                             </Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
