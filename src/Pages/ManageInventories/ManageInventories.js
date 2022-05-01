@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import '../Home/Home/Items/Items.css';
+import '../Home/Home/Item/item.css';
 
 const ManageInventories = () => {
     const [inventories, setInventories] = useState([]) ;
@@ -36,11 +37,11 @@ const ManageInventories = () => {
             <div className="items-container mb-5 ">
             {
                inventories.map( item => 
-                <div key = {item?._id}>
-                   
-                   <img className='w-100' src={item?.img} alt="" />
+                <div className='item' key = {item?._id}>
+                    <img className='w-100' src={item?.img} alt="" />
                    <h4>{item?.name}</h4>
                    <button onClick = {() => handleDeleteItem(item?._id)} className='btn btn-warning'>Delete</button>
+            
                 </div>
                 
                 )
