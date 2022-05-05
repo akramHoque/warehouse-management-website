@@ -18,6 +18,28 @@ const MyItems = () => {
         getItem();
 
     }, [user])
+
+    const handleDeleteItem = id => {
+        const proceed = window.confirm('Are you sure to Delete?')
+        if (proceed) {
+            const url = `http://localhost:5000/order/${id}`;
+            fetch(url, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    const remaining = item.filter(order => order._id !== id);
+                    setItem(remaining);
+                })
+
+        }
+    }
+
+    
+
+
+
     return (
        <div className='container'>
             <div className='row'>
@@ -29,6 +51,7 @@ const MyItems = () => {
                         <img className='w-100' src={order.img} alt="" />
                         <h4>{order.name}</h4>
                         <p>{order.price}</p>
+                        <button onClick={() => handleDeleteItem(order?._id)} className='btn btn-warning'>Delete</button>
                     </div>
                     )
             }
