@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import '../Home/Home/Items/Items.css';
 import '../Home/Home/Item/item.css';
-import { useForm } from "react-hook-form";
+import { Link } from 'react-router-dom';
+
 
 const ManageInventories = () => {
+
     const [inventories, setInventories] = useState([]);
+ 
 
     const handleDeleteItem = id => {
         const proceed = window.confirm('Are you sure to Delete?')
@@ -23,25 +26,7 @@ const ManageInventories = () => {
         }
     }
 
-    const { register, handleSubmit } = useForm();
-    const onSubmit = data => {
-
-        console.log(data);
-
-        const url = `http://localhost:5000/items`;
-        fetch(url, {
-            method: "POST",
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(data)
-        })
-            .then(res => res.json())
-            .then(result => {
-                console.log(result);
-            })
-
-    }
+    
 
     useEffect(() => {
         fetch('http://localhost:5000/manageInventories')
@@ -67,19 +52,13 @@ const ManageInventories = () => {
 
                         )
                     }
+
                 </div>
 
-                <div className='w-50 mx-auto pt-3'>
-                    <form className='d-flex flex-column ' onSubmit={handleSubmit(onSubmit)}>
-                        <input className='mb-2' placeholder='Name' {...register("name", { required: true, maxLength: 20 })} />
-                        <textarea className='mb-2' placeholder='Description' {...register("shortDescription")} />
-                        <input className='mb-2' placeholder='Price' type="number" {...register("price")} />
-                        <input className='mb-2' placeholder='SupplierName' type="text" {...register("supplierName")} />
-                        <input className='mb-2' placeholder='photoURL' type="text" {...register("img")} />
-                        <input type="submit" value='Add New Item' />
-                    </form>
-                </div>
             </div>
+           <Link to = '/addItem'>
+           <button>Add New Item</button>
+           </Link>
         </div>
     );
 };
