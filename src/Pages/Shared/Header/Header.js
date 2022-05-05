@@ -18,11 +18,16 @@ const Header = () => {
                     <Navbar.Brand as={Link} to="/">
                     <img height={'35'} className = 'rounded-circle' src={logo} alt="" />
                     </Navbar.Brand>
-                    <Navbar.Brand as={Link} to = "/home">Home</Navbar.Brand>
+                    <Navbar.Brand as={Link} to="/home">
+                     Home
+                    </Navbar.Brand>
+                    <Nav.Link as={Link} to = "/items">Items</Nav.Link>
+                    
+                   
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
-                            <Nav.Link as={Link} to = "/items">Items</Nav.Link>
+                           
                             {
                                 user && <>
                                  <Nav.Link as={Link} to = '/inventory/:itemId'>Inventory</Nav.Link>
