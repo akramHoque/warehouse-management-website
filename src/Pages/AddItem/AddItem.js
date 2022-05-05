@@ -33,7 +33,7 @@ const AddItem = () => {
     }
     return (
         <div>
-            <h3 className='text-center'>Add an Item</h3>
+            <h3 className='text-center'>Please Add an Item</h3>
             
             <div className='w-50 mx-auto pt-3'>
                     <form className='d-flex flex-column ' onSubmit={handleSubmit(onSubmit)}>

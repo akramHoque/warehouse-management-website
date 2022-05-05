@@ -6,7 +6,6 @@ import auth from '../../firebase.init';
 const MyItems = () => {
     
     const [item, setItem] = useState([]);
-    console.log(item)
     const [user] = useAuthState(auth);
     useEffect(() =>{
         const getItem = async() =>{
@@ -28,7 +27,6 @@ const MyItems = () => {
             })
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data);
                     const remaining = item.filter(order => order._id !== id);
                     setItem(remaining);
                 })
@@ -50,7 +48,7 @@ const MyItems = () => {
                     <div className='item' key = {order?._id}>
                         <img className='w-100' src={order.img} alt="" />
                         <h4>{order.name}</h4>
-                        <p>{order.price}</p>
+                        <p>Price: ${order.price}</p>
                         <button onClick={() => handleDeleteItem(order?._id)} className='btn btn-warning'>Delete</button>
                     </div>
                     )
