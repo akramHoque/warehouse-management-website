@@ -11,9 +11,9 @@ const Items = () => {
                 .then(data => setItems(data.slice(0, 6)))
         } , [])
     return (
-        <div className='container '>
+        <div className='container'>
             <div className="row">
-            <h1 className=' text-center mb-3'> <span className='text-danger p-2 '>Items</span></h1>
+            <h1 className=' text-center mb-3'> <span className='text-danger p-2 '>Inventory</span></h1>
             <div className="items-container mb-5 ">
             {
                 items.map(item => <Item

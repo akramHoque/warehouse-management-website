@@ -5,12 +5,12 @@ import carousel2 from '../../../../images/Banner/carousel2.png'
 
 const Banner = () => {
     return (
-        <div>
+        <div className='my-5'>
               <div className='container'>
             <Carousel>
                 <Carousel.Item>
                     <img
-                        className="d-block w-100 "
+                        className="d-block w-100"
                         src={carousel1}
                         alt="First slide"
                     />

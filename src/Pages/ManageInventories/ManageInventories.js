@@ -56,7 +56,7 @@ const ManageInventories = () => {
                 </div>
 
             </div>
-           <Link to = '/addItem'>
+           <Link to = '/addItem' className='text-center text-warning'>
            <button>Add New Item</button>
            </Link>
         </div>

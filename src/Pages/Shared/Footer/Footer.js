@@ -1,10 +1,13 @@
 import React from 'react';
+import './Footer.css';
 
 const Footer = () => {
     return (
-        <div>
-            <h2>This is footer</h2>
-        </div>
+       
+           <div className="footer-style">
+                <p> Copyright <span dangerouslySetInnerHTML={{ "__html": "&copy;" }}></span> All the Reserved to Oraganic Fruits 2022</p>
+            </div>
+       
     );
 };
 

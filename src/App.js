@@ -10,6 +10,7 @@ import RequireAuth from './Pages/RequireAuth/RequireAuth' ;
 import ManageInventories from './Pages/ManageInventories/ManageInventories' ;
 import AddItem from './Pages/AddItem/AddItem';
 import MyItems from './Pages/MyItems/MyItems';
+import NotFound from './Pages/NotFound/NotFound';
 
 
 const App = () => {
@@ -47,7 +48,7 @@ const App = () => {
                        <MyItems></MyItems>
                     </RequireAuth>
                 }></Route>
-                
+                <Route path = "/*" element = {<NotFound></NotFound>}></Route>
             </Routes>
         </div>
     );

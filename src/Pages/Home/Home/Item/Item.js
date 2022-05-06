@@ -17,11 +17,11 @@ const Item = ({item}) => {
             <h4 className='text-secondary'>{name}</h4>
             <h5 className='text-secondary'>{supplierName}</h5>
              <p>Quantity: {quantity}</p>
-            <p>Price: <span>${price}</span></p>
+            <p className='text-danger'>Price: <span>${price}</span></p>
             <p><small>{shortDescription}</small></p> 
                 <div >
 
-                  <button onClick={() => handleUpdateBtn(_id)} className='btn btn-warning w-50 item-btn'>Update</button>
+                  <button onClick={() => handleUpdateBtn(_id)} className='btn btn-warning w-50 item-btn font-semibold'>Update</button>
                 </div> 
         </div>
         </div>
