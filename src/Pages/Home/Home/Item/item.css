@@ -1,9 +1,14 @@
 .item{
-    border: 1px solid lightgray;
-    border-radius: 10px;
+    border: 1px solid rgb(253, 253, 253);
+    border-radius: 13px;
     padding-bottom: 10px;
     text-align: center;
     height: 100%;
+    background-color: rgb(252, 249, 249);
+}
+
+.item img{
+    padding: 20px;
 }
 
 .item-btn{
@@ -17,7 +22,7 @@
     font-size: 16px;
     
 }
-.item h4{
+.item h5{
      text-transform: uppercase;
      font-weight: 600;
      padding-top: 10px;

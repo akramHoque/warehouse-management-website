@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import Faqs from '../../Faqs/Faqs';
 import Banner from '../Home/Banner/Banner' ;
 import Items from './Items/Items';
 
@@ -14,9 +15,51 @@ const Home = () => {
 
         <Items></Items>
 
+        <Faqs></Faqs>
+      
+          <div className="container">
+          <div className="row d-flex">
+              
+              <div className="col-md-6 col-sm-12 col-lg-12 px-5">
+              <ol class="list-group list-group-numbered w-100">
+  <li class="list-group-item d-flex justify-content-between align-items-start">
+    <div class="ms-2 me-auto">
+      <div class="fw-bold">Subheading</div>
+      Content for list item
+    </div>
+    <span class="badge bg-primary rounded-pill">14</span>
+  </li>
+  <li class="list-group-item d-flex justify-content-between align-items-start">
+    <div class="ms-2 me-auto">
+      <div class="fw-bold">Subheading</div>
+      Content for list item
+    </div>
+    <span class="badge bg-primary rounded-pill">14</span>
+  </li>
+  <li class="list-group-item d-flex justify-content-between align-items-start">
+    <div class="ms-2 me-auto">
+      <div class="fw-bold">Subheading</div>
+      Content for list item
+    </div>
+    <span class="badge bg-primary rounded-pill">14</span>
+  </li>
+</ol>
+              </div>
+
+              <div className="col-md-6 col-sm-12 col-lg-12">
+                <h2>paskfnafna</h2>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. A, repudiandae.</p>
+              </div>
+          </div>
+          </div>
+      
+
+        <div className='text-center pb-5'>
         <Link to = '/manageInventories'>
-        <button className='btn btn-warning'>Manage Inventories</button>
+        <button className='btn bg-secondary text-warning'>Manage Inventories</button>
         </Link>
+        </div>
+    
         </div>
     );
 };

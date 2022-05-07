@@ -56,9 +56,11 @@ const ManageInventories = () => {
                 </div>
 
             </div>
+           <div className='text-center pb-5'>
            <Link to = '/addItem' className='text-center text-warning'>
-           <button>Add New Item</button>
+           <button className='btn bg-secondary text-warning'>Add New Item</button>
            </Link>
+           </div>
         </div>
     );
 };

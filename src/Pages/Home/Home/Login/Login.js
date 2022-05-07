@@ -5,6 +5,7 @@ import auth from '../../../../firebase.init';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import SocialLogin from '../../Home/SocailLogin/SocialLogin';
 import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const Login = () => {
@@ -49,9 +50,14 @@ const Login = () => {
           const resetPassword = async() =>{
                 const email = emailRef.current.value;
 
+               if(email){
                 await sendPasswordResetEmail(email);
 
                 toast('Sent email');
+               }
+               else{
+                       toast('please enter your email address');
+               }
           }
 
         const navigateToRegister = event => {

@@ -13,9 +13,9 @@ const Item = ({item}) => {
         <div>
         
             <div className='item'>
-            <img className='w-100' src={img} alt="" />
-            <h4 className='text-secondary'>{name}</h4>
-            <h5 className='text-secondary'>{supplierName}</h5>
+            <img className='w-50' src={img} alt="" />
+            <h5 className='text-secondary'>{name}</h5>
+            <h6 className='text-secondary'>{supplierName}</h6>
              <p>Quantity: {quantity}</p>
             <p className='text-danger'>Price: <span>${price}</span></p>
             <p><small>{shortDescription}</small></p> 

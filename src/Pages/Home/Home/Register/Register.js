@@ -4,9 +4,10 @@ import auth from '../../../../firebase.init';
 import SocialLogin from '../../Home/SocailLogin/SocialLogin';
 import { Link, useNavigate } from 'react-router-dom';
 import './Register.css';
+import Loading from '../../../Shared/Loading/Loading';
 
 const Register = () => {
-    const navigate = useNavigate();
+  
 
     const [
         createUserWithEmailAndPassword,
@@ -14,11 +15,22 @@ const Register = () => {
         loading,
         error,
       ] = useCreateUserWithEmailAndPassword(auth);
+      
+      if(user){
+        navigate('/home');
+    }
   
-    const navigateToLogin = () =>{
+      const navigate = useNavigate();
+      const navigateToLogin = () =>{
         navigate('/login');
     }
-
+      
+    
+   
+    
+    if(loading){
+        return <Loading></Loading>
+    }
    
 
     const handleRegister = event =>{
@@ -34,9 +46,7 @@ const Register = () => {
         createUserWithEmailAndPassword(emailField, passwordField);
     }
 
-    if(user){
-        navigate('/home');
-    }
+   
 
     return (
         <div className='register'>

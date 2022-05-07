@@ -7,6 +7,7 @@ const MyItems = () => {
     
     const [item, setItem] = useState([]);
     const [user] = useAuthState(auth);
+    
     useEffect(() =>{
         const getItem = async() =>{
             const email = user.email
@@ -50,6 +51,7 @@ const MyItems = () => {
                         <h4>{order.name}</h4>
                         <p>Price: ${order.price}</p>
                         <button onClick={() => handleDeleteItem(order?._id)} className='btn btn-warning'>Delete</button>
+                        
                     </div>
                     )
             }
