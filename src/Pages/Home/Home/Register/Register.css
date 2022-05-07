@@ -5,12 +5,11 @@
 
 .register input {
     display: block;
-   
-    height: 60px;
-    padding-left:12px ;
-    width: 100%;
-    font-size: 20px;
+    height: 35px;
 
-   margin-bottom: 16px;
+    padding-left:9px ;
+    width: 100%;
+    font-size: 16px;
+   margin-bottom: 15px;
    
 }

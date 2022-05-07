@@ -7,31 +7,28 @@ import './Register.css';
 import Loading from '../../../Shared/Loading/Loading';
 
 const Register = () => {
-  
-
     const [
         createUserWithEmailAndPassword,
         user,
         loading,
         error,
-      ] = useCreateUserWithEmailAndPassword(auth);
-      
+    ] = useCreateUserWithEmailAndPassword(auth, {sendEmailVerification: true});
+    const navigate = useNavigate();
+
+    const navigateToLogin = () => {
+        navigate('/login');
+    }
       if(user){
         navigate('/home');
     }
   
-      const navigate = useNavigate();
-      const navigateToLogin = () =>{
-        navigate('/login');
+    if(loading){
+        return <Loading></Loading>
     }
       
     
    
     
-    if(loading){
-        return <Loading></Loading>
-    }
-   
 
     const handleRegister = event =>{
 
@@ -44,6 +41,7 @@ const Register = () => {
         const passwordField = event.target.password.value;
 
         createUserWithEmailAndPassword(emailField, passwordField);
+        navigate('/home');
     }
 
    

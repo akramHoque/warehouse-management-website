@@ -1,113 +1,93 @@
 import React, { useRef } from 'react';
 import { Button, Form } from 'react-bootstrap';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../../firebase.init';
-import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import SocialLogin from '../../Home/SocailLogin/SocialLogin';
-import { ToastContainer, toast } from 'react-toastify';
+import Loading from '../../../Shared/Loading/Loading';
+import SocialLogin from '../SocailLogin/SocialLogin';
+import { toast , ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import axios from 'axios';
 
 const Login = () => {
-        const emailRef = useRef('');
-        const passwordRef = useRef('');
-      
-        const location = useLocation() ;
-        const navigate = useNavigate() ;
+    const emailRef = useRef('');
+    const passwordRef = useRef('');
+    const navigate = useNavigate();
+    const location = useLocation();
 
-        let from = location.state?.from?.pathname || "/";
-        let errorMessageShow;
-    
+    let from = location.state?.from?.pathname || "/";
+    let errorElement;
+    const [
+        signInWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useSignInWithEmailAndPassword(auth);
 
-        const [
-                signInWithEmailAndPassword,
-                user,
-                loading,
-                error,
-              ] = useSignInWithEmailAndPassword(auth);
+    const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
 
-  
+    if (loading || sending) {
+        return <Loading></Loading>
+    }
 
+    if (user) {
+        // navigate(from, { replace: true });
+    }
 
-            // showing error
-            if (error) {
-                errorMessageShow = <h6 className='text-danger'>error: {error?.message}</h6>
-            }
+    if (error) {
+        errorElement = <p className='text-danger'>Error: {error?.message}</p>
+    }
 
-
-            if (user) {
-                navigate(from, { replace: true });
-            }
-
-
-            // reset password
-            const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(
-                auth
-              );
-
-
-        
-          const resetPassword = async() =>{
-                const email = emailRef.current.value;
-
-               if(email){
-                await sendPasswordResetEmail(email);
-
-                toast('Sent email');
-               }
-               else{
-                       toast('please enter your email address');
-               }
-          }
-
-        const navigateToRegister = event => {
-                navigate('/register')
-        }
-
-        // handle login with email and password
-
-
-        const hanldeLogin = event =>{
-                event.preventDefault();
-
+    const handleSubmit = async event => {
+        event.preventDefault();
         const email = emailRef.current.value;
-
         const password = passwordRef.current.value;
 
-        signInWithEmailAndPassword(email, password);
+        await signInWithEmailAndPassword(email, password);
+        const {data: info} = await axios.post('http://localhost:5000/token', {email});
+        localStorage.setItem('accessToken', info.accessToken);
+        navigate(from, { replace: true });
+        console.log(info);
+    }
+
+    const navigateRegister = event => {
+        navigate('/register');
+    }
+
+    const resetPassword = async () => {
+        const email = emailRef.current.value;
+        if (email) {
+            await sendPasswordResetEmail(email);
+            toast('Sent email');
         }
+        else{
+            toast('please enter your email address');
+        }
+    }
 
-        
-        return (
-
-        <div className='container w-50 mx-auto py-3'>
-        <h2 className='text-danger text-center mt-2'>Please Login</h2> 
-        <Form onSubmit={ hanldeLogin}>
-                <Form.Group className="mb-2" controlId="formBasicEmail">
-                <Form.Label>Email</Form.Label>
-                 <Form.Control  ref = {emailRef} type="email" placeholder="Enter your email" required/>
-                 </Form.Group>
-
-                <Form.Group className="mb-2" controlId="formBasicPassword">
-                <Form.Label>Password</Form.Label>
-
-                <Form.Control ref = {passwordRef} type="password" placeholder="Password" required />
-
+    return (
+        <div className='container w-50 mx-auto'>
+            
+            <h2 className='text-primary text-center mt-2'>Please Login</h2>
+            <Form onSubmit={handleSubmit}>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Control ref={emailRef} type="email" placeholder="Enter email" required />
                 </Form.Group>
-                <Button className = 'mb-3' variant="success" type="submit">
-                        Login
+                <Form.Group className="mb-3" controlId="formBasicPassword">
+                    <Form.Control ref={passwordRef} type="password" placeholder="Password" required />
+                </Form.Group>
+                <Button variant="primary w-50 mx-auto d-block mb-2" type="submit">
+                    Login
                 </Button>
-        </Form>   
-        {errorMessageShow}
-
-<h6>New to Here? <Link to="/register" className='text-danger pe-auto text-decoration-none' onClick={navigateToRegister}>Please Register</Link> </h6>
-<p>Forget password? <button  className=' btn btn-link text-success pe-auto text-decoration-none' onClick={resetPassword}>Reset Password</button> </p> 
-               <SocialLogin></SocialLogin>
-
-                <ToastContainer />
-
- </div>
-        );
+            </Form>
+            {errorElement}
+            <p>New to Here? <Link to="/register" className='text-primary pe-auto text-decoration-none' onClick={navigateRegister}>Please Register</Link> </p>
+            <p>Forget Password? <button className='btn btn-link text-primary pe-auto text-decoration-none' onClick={resetPassword}>Reset Password</button> </p>
+            <SocialLogin></SocialLogin>
+            <ToastContainer></ToastContainer>
+            
+        </div>
+    );
 };
 
 export default Login;

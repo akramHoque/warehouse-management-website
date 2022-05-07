@@ -21,27 +21,27 @@ const Home = () => {
           <div className="row d-flex">
               
               <div className="col-md-6 col-sm-12 col-lg-12 px-5">
-              <ol class="list-group list-group-numbered w-100">
+              <ol className="list-group list-group-numbered w-100">
   <li class="list-group-item d-flex justify-content-between align-items-start">
-    <div class="ms-2 me-auto">
-      <div class="fw-bold">Subheading</div>
+    <div className="ms-2 me-auto">
+      <div className="fw-bold">Subheading</div>
       Content for list item
     </div>
-    <span class="badge bg-primary rounded-pill">14</span>
+    <span className="badge bg-primary rounded-pill">14</span>
   </li>
-  <li class="list-group-item d-flex justify-content-between align-items-start">
-    <div class="ms-2 me-auto">
-      <div class="fw-bold">Subheading</div>
+  <li className="list-group-item d-flex justify-content-between align-items-start">
+    <div className="ms-2 me-auto">
+      <div className="fw-bold">Subheading</div>
       Content for list item
     </div>
-    <span class="badge bg-primary rounded-pill">14</span>
+    <span className="badge bg-primary rounded-pill">14</span>
   </li>
-  <li class="list-group-item d-flex justify-content-between align-items-start">
-    <div class="ms-2 me-auto">
-      <div class="fw-bold">Subheading</div>
+  <li className="list-group-item d-flex justify-content-between align-items-start">
+    <div className="ms-2 me-auto">
+      <div className="fw-bold">Subheading</div>
       Content for list item
     </div>
-    <span class="badge bg-primary rounded-pill">14</span>
+    <span className="badge bg-primary rounded-pill">14</span>
   </li>
 </ol>
               </div>
