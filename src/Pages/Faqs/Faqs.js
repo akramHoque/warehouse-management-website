@@ -11,7 +11,7 @@ const Faqs = () => {
         
         <Accordion defaultActiveKey={['0']} alwaysOpen>
   <Accordion.Item eventKey="0">
-    <Accordion.Header>Accordion Item #1</Accordion.Header>
+    <Accordion.Header></Accordion.Header>
     <Accordion.Body>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
       tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim

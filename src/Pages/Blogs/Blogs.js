@@ -67,8 +67,13 @@ So, if you want to write some kind of stand-alone program or server in Javascrip
     <p>4. Horizontally scalable</p>
     </div>
 
-    <div>
-        
+    <div className='text-center'>
+        <h6>Purposes of JWT</h6>
+        <p>The JWT is javascript web token. jwt is used to secure backend or storage data. Normally an user can access our data by an email address. To secure our data we use a token that is check the actual user. otherwise does not provide any data.</p>
+        <h6>Process of JWT</h6>
+
+        <p>First we have to create an access token that is checked with the actual user. after generating token we have to verify the user by comparing this token. if the token and user info is same then the user identify the user. otherwise not.</p>
+
     </div>
 
         </div>

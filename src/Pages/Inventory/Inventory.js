@@ -7,7 +7,7 @@ const Inventory = () => {
     const { itemId } = useParams();
     const [inventory, setInventory] = useState({});
     useEffect(() => {
-        const url = `http://localhost:5000/inventory/${itemId}`;
+        const url = `https://rocky-spire-40450.herokuapp.com/inventory/${itemId}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setInventory(data));
@@ -21,7 +21,7 @@ const Inventory = () => {
         const quantityFinal = { newQuantity };
         console.log(quantityFinal);
 
-        fetch(`http://localhost:5000/inventory/${itemId}`, {
+        fetch(`https://rocky-spire-40450.herokuapp.com/inventory/${itemId}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -44,7 +44,7 @@ const Inventory = () => {
         const newQuantity = number + quantity;
         const quantitySum = { newQuantity };
 
-        fetch(`http://localhost:5000/inventory/${itemId}`, {
+        fetch(`https://rocky-spire-40450.herokuapp.com/inventory/${itemId}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -88,17 +88,17 @@ const Inventory = () => {
                     <input className='btn btn-warning mx-2' type="submit" value="Restock" />
 
                 </form>
-              </div>
-              
-              <Link to='/manageInventories' className='m-5 pb-5'>
-                    <button className='btn bg-secondary text-warning'>Manage Inventories</button>
-                </Link>
-
-            
-
             </div>
 
-        
+            <Link to='/manageInventories' className='m-5 pb-5'>
+                <button className='btn bg-secondary text-warning'>Manage Inventories</button>
+            </Link>
+
+
+
+        </div>
+
+
 
     );
 };
