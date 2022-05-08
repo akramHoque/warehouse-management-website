@@ -11,6 +11,7 @@ import ManageInventories from './Pages/ManageInventories/ManageInventories' ;
 import AddItem from './Pages/AddItem/AddItem';
 import MyItems from './Pages/MyItems/MyItems';
 import NotFound from './Pages/NotFound/NotFound';
+import Blogs from './Pages/Blogs/Blogs';
 
 
 const App = () => {
@@ -20,7 +21,7 @@ const App = () => {
             <Routes>
                 <Route path='/' element={<Home></Home>}></Route>
                 <Route path='/home' element={<Home></Home>}></Route>
-               
+               <Route path='/blogs' element = {<Blogs></Blogs>}></Route>
                 <Route path='/items' element={<Items></Items>}></Route>
                 <Route path='/login' element = {<Login></Login>}></Route>
                 <Route path='/register' element = {<Register></Register>}></Route>
