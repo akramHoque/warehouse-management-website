@@ -7,7 +7,7 @@ const NotFound = () => {
             <h4 className='text-center text-danger'>404</h4>
             {/* <img src={} alt="" /> */}
 
-            {/* https://stackoverflow.com/questions/72158912/what-is-javascript-web-token */}
+           
         </div>
     );
 };

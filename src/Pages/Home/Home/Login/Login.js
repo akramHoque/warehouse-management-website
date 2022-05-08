@@ -83,7 +83,7 @@ const Login = () => {
             {errorMessage}
             <p>New to Here? <Link to="/register" className='text-success pe-auto text-decoration-none' onClick={navigateToRegister}>Please Register</Link> </p>
             <h6>Forget Password? <button className='btn btn-link text-success pe-auto text-decoration-none' onClick={resetPassword}>Reset Password</button> </h6>
-            <SocialLogin></SocialLogin>
+            <SocialLogin ></SocialLogin>
             <ToastContainer></ToastContainer>
 
         </div>

@@ -18,7 +18,7 @@ const Item = ({item}) => {
             <h6 className='text-secondary'>{supplierName}</h6>
              <p>Quantity: {quantity}</p>
             <p className='text-danger'>Price: <span>${price}</span></p>
-            <p><small>{shortDescription}</small></p> 
+            <p className='text-muted'><small>{shortDescription}</small></p> 
                 <div >
 
                   <button onClick={() => handleUpdateBtn(_id)} className='btn btn-warning w-50 item-btn font-semibold'>Update</button>

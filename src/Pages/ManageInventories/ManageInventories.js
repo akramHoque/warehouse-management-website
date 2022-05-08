@@ -43,9 +43,9 @@ const ManageInventories = () => {
                     {
                         inventories.map(item =>
                             <div className='item' key={item?._id}>
-                                <img className='w-100' src={item?.img} alt="" />
-                                <h4>{item?.name}</h4>
-                                <h6>Suplier Name: {item?.supplierName}</h6>
+                                <img className='w-50' src={item?.img} alt="" />
+                                <h4 className='text-muted'>{item?.name}</h4>
+                                <h6 className='text-muted'>Suplier Name: {item?.supplierName}</h6>
                                 <p>Price: ${item?.price}</p>
                                 <button onClick={() => handleDeleteItem(item?._id)} className='btn btn-warning'>Delete</button>
                             </div>

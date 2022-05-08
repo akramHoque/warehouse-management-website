@@ -10,8 +10,10 @@ import RequireAuth from './Pages/RequireAuth/RequireAuth' ;
 import ManageInventories from './Pages/ManageInventories/ManageInventories' ;
 import AddItem from './Pages/AddItem/AddItem';
 import MyItems from './Pages/MyItems/MyItems';
+import Footer from './Pages/Shared/Footer/Footer' ;
 import NotFound from './Pages/NotFound/NotFound';
 import Blogs from './Pages/Blogs/Blogs';
+
 
 
 const App = () => {
@@ -22,9 +24,14 @@ const App = () => {
                 <Route path='/' element={<Home></Home>}></Route>
                 <Route path='/home' element={<Home></Home>}></Route>
                <Route path='/blogs' element = {<Blogs></Blogs>}></Route>
-                <Route path='/items' element={<Items></Items>}></Route>
+               
                 <Route path='/login' element = {<Login></Login>}></Route>
                 <Route path='/register' element = {<Register></Register>}></Route>
+                <Route path='/items' element={
+                    <RequireAuth>
+                        <Items></Items>
+                    </RequireAuth>
+                }></Route>
                 <Route path = '/inventory/:itemId' element = {
                     <RequireAuth>
                         <Inventory></Inventory>
@@ -50,8 +57,11 @@ const App = () => {
                        <MyItems></MyItems>
                     </RequireAuth>
                 }></Route>
-                <Route path = "/*" element = {<NotFound></NotFound>}></Route>
+                <Route path = "*" element = {<NotFound></NotFound>}/>
             </Routes>
+            
+            <Footer></Footer>
+
         </div>
     );
 };

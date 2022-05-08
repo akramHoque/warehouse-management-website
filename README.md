@@ -1,4 +1,4 @@
-# Organic Fruits wearehouse
+# Organic Fruits Warehouse
 
 ## Live webiste link:  ["https://assignment-10-gym-trainer.web.app"]("https://assignment-10-gym-trainer.web.app").
 Click here to see page: ["https://assignment-10-gym-trainer.web.app"](https://classroom.github.com/a/AD3X5Pv-)
